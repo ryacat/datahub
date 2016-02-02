@@ -1,0 +1,16 @@
+<a href="#/group/{{groupid}}"><small><< Previous Page</small></a>
+<h4>{{tableheader.displayname}}</h4>
+<h5>{{tableheader.subheading}}</h5>
+<p style="font-size:12px;">{{tableheader.description}}</p>
+<small>Source: {{tableheader.source}}<br/>
+Unit: {{tableheader.unit}}<br/>
+DataID: {{tableid}}-{{groupid}}<br/></small><br/>
+<div style="font-size:20px;" ng-show="loading">Loading....</div>
+<!--<div ng-db-chart chart-data="salesData"></div>
+<div ng-db-map></div>-->
+<table class="table table-condensed table-hover" >
+    <tr><th colspan="2"></th><th ng-repeat="col in tablecolumns" style="margin:auto;"><a href="#/column/{{col.id}}">{{col.columndisplayname}}</a><br/><input type="checkbox"/></th></tr>
+    <tr ng-repeat="row in tablerows"><td><input type="checkbox"/></td><td><a href="#/row/{{row.id}}">{{row.rowdisplayname}}</a></td><td ng-repeat="dat in tabledata | filter:{ rowid: row.id}:true"><em>{{dat.data | number : 2 }}</em></td></tr>   
+</table>
+<small><b>Notes:</b>  {{tableheader.footnote}}</small><br/>
+<div id="chart"></div>
